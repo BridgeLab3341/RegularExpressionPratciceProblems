@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -37,6 +38,19 @@ namespace RegularExpressionPracticeProblems
             else
             {
                 Console.WriteLine("The {0} Lowercase letters are Not valid", input);
+            }
+        }
+        public void FetchHTMLTags()
+        {
+            string input = "<p>The<code>Regex</code>is a compiled representation of a regular expression.</p>";
+            string pattern = @"<[^/][^>]*>|<\/[^>]+>";
+            Regex regex = new Regex(pattern);
+            // Find all matches in the input string
+            MatchCollection matches = regex.Matches(input);
+            Console.WriteLine("HTML tags found in the input string:");
+            foreach (Match match in matches)
+            {
+                Console.WriteLine(match.Value);
             }
         }
     }
