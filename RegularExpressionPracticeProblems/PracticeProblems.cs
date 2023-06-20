@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace RegularExpressionPracticeProblems
 {
@@ -73,11 +74,27 @@ namespace RegularExpressionPracticeProblems
             string pattern = "^[A-Za-z0-9]+[.]+(jpg|jpeg|png|gif)$";
             Regex regex = new Regex(pattern);
             Console.WriteLine("Valid image file names");
+            Console.WriteLine("-----------------------");
             foreach (string fileName in filePath)
             {
                 if(regex.IsMatch(fileName))
                 {
                     Console.WriteLine(fileName);
+                }
+            }
+        }
+        public void ValidateWebsiteAddressFormate()
+        {
+            string[] input = {"https://www.example.com","http://example.com","www.example.com","example.com", "http://invalid","ftp://ftp.example.com"};
+            string pattern = @"^(https?://)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}$";
+            Regex regex = new Regex(pattern);
+            Console.WriteLine("Valid Website Address formates");
+            Console.WriteLine("------------------------------");
+            foreach (string web in input)
+            {
+                if( regex.IsMatch(web))
+                {
+                    Console.WriteLine(web);
                 }
             }
         }
