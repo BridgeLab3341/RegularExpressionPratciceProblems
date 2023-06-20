@@ -24,5 +24,20 @@ namespace RegularExpressionPracticeProblems
                 Console.WriteLine("The Given string {0} Not Matches With Pattern",input);
             }
         }
+        public void FindSequenceOfLowerCase()
+        {
+            Console.WriteLine("Enter a sequences of lowercase letters joined by an underscore.");
+            string input=Convert.ToString(Console.ReadLine());
+            string pattern = "^[a-z]+(?:_[a-z])";
+            Regex regex= new Regex(pattern);
+            if(regex.IsMatch(input))
+            {
+                Console.WriteLine("The {0} Lowercase letters are valid",input);
+            }
+            else
+            {
+                Console.WriteLine("The {0} Lowercase letters are Not valid", input);
+            }
+        }
     }
 }
