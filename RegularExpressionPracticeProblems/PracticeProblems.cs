@@ -67,5 +67,19 @@ namespace RegularExpressionPracticeProblems
             }
             Console.WriteLine(count);
         }
+        public void FindValidFileNamesImageExtension()
+        {
+            string[] filePath = { "image.jpg", "photo.png", "picture.gif", "document.docx", "data.csv", "backup.zip" };
+            string pattern = "^[A-Za-z0-9]+[.]+(jpg|jpeg|png|gif)$";
+            Regex regex = new Regex(pattern);
+            Console.WriteLine("Valid image file names");
+            foreach (string fileName in filePath)
+            {
+                if(regex.IsMatch(fileName))
+                {
+                    Console.WriteLine(fileName);
+                }
+            }
+        }
     }
 }
